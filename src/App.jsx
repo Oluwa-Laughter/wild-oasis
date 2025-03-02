@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import GlobalStyles from "./styles/GlobalStyles";
 import Login from "./pages/Login";
 import Settings from "./pages/Settings";
@@ -15,15 +15,15 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Routes index element={<Navigate replace to="dashboard" />} />
-          <Routes path="dashboard" element={<Dashboard />} />
-          <Routes path="bookings" element={<Bookings />} />
-          <Routes path="cabins" element={<Cabins />} />
-          <Routes path="users" element={<Users />} />
-          <Routes path="settings" element={<Settings />} />
-          <Routes path="account" element={<Account />} />
-          <Routes path="login" element={<Login />} />
-          <Routes path="*" element={<PageNotFound />} />
+          <Route index element={<Navigate replace to="dashboard" />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="bookings" element={<Bookings />} />
+          <Route path="cabins" element={<Cabins />} />
+          <Route path="users" element={<Users />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="account" element={<Account />} />
+          <Route path="login" element={<Login />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </>
