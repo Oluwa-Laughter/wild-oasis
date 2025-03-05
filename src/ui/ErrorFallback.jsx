@@ -31,11 +31,7 @@ const Box = styled.div`
 `;
 
 function ErrorFallback() {
-  return (
-    <div>
-      Error
-    </div>
-  )
+  return <div>Error</div>;
 }
 
-export default ErrorFallback
+export default ErrorFallback;
