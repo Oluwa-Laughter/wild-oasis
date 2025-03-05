@@ -14,8 +14,5 @@ const StyledSelect = styled.select`
   box-shadow: var(--shadow-sm);
 `;
 
-function Select() {
-  return <div></div>;
-}
 
 export default Select;

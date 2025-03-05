@@ -7,8 +7,4 @@ export const Flag = styled.img`
   border: 1px solid var(--color-grey-100);
 `;
 
-function Flag() {
-  return <div>Flag</div>;
-}
-
 export default Flag;
