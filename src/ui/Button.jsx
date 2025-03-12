@@ -48,19 +48,32 @@ const variations = {
   `,
 };
 
-const Button = styled.button`
+const StyledButton = styled.button`
   border: none;
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
 
-  ${(props) => variations[props.variation]}
-
   ${(props) => sizes[props.size]}
+  ${(props) => variations[props.variation]}
 `;
 
-Button.defaultProps = {
-  variation: "primary",
-  size: "medium",
-};
+function Button({
+  children,
+  variation = "primary",
+  type,
+  size = "medium",
+  onClick,
+}) {
+  return (
+    <StyledButton
+      variation={variation}
+      size={size}
+      type={type}
+      onClick={onClick}
+    >
+      {children}
+    </StyledButton>
+  );
+}
 
 export default Button;

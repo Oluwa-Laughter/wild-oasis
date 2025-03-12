@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const Row = styled.div`
+const StyledRow = styled.div`
   display: flex;
 
   ${(props) =>
@@ -18,8 +18,8 @@ const Row = styled.div`
     `}
 `;
 
-Row.defaultProps = {
-  type: "vertical",
-};
+function Row({ children, type = "vertical" }) {
+  return <StyledRow type={type}>{children}</StyledRow>;
+}
 
 export default Row;
