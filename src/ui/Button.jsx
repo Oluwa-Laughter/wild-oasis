@@ -61,6 +61,7 @@ function Button({
   children,
   variation = "primary",
   type,
+  disabled,
   size = "medium",
   onClick,
 }) {
@@ -70,6 +71,7 @@ function Button({
       size={size}
       type={type}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </StyledButton>
