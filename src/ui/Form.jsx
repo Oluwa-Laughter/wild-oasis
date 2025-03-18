@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
-const Form = styled.form`
+const StyledForm = styled.form`
   ${(props) =>
-    props.type !== "modal" &&
+    props.type === "regular" &&
     css`
       padding: 2.4rem 4rem;
 
@@ -21,5 +21,13 @@ const Form = styled.form`
   overflow: hidden;
   font-size: 1.4rem;
 `;
+
+function Form({ children, type = "regular", onSubmit }) {
+  return (
+    <StyledForm type={type} onSubmit={onSubmit}>
+      {children}
+    </StyledForm>
+  );
+}
 
 export default Form;
