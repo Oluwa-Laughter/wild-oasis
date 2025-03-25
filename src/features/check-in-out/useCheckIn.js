@@ -22,7 +22,7 @@ export function useCheckIn() {
       navigate("/");
     },
 
-    onError: () => toast.error("Could not check in booking"),
+    onError: () => toast.error("There was an error checking in the booking"),
   });
 
   return { checkIn, isCheckingIn };

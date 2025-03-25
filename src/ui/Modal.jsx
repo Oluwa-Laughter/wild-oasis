@@ -96,6 +96,7 @@ function Window({ children, name }) {
 }
 
 Modal.Open = Open;
+
 Modal.Window = Window;
 
 export default Modal;
