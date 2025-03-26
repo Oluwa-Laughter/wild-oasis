@@ -12,9 +12,8 @@ export function useLogin() {
 
     onSuccess: (user) => {
       toast.success(`Welcome back, ${user.user.email}!`);
+      queryClient.setQueryData(["user"], user.user);
       navigate("/dashboard", { replace: true });
-
-      queryClient.setQueriesData(["user"], user);
     },
 
     onError: (error) => {
