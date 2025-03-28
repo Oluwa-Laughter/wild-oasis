@@ -4,14 +4,15 @@ import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import { useSignup } from "./useSignup";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 // Email regex: /\S+@\S+\.\S+/
 
 function SignupForm() {
+  const { signUp, isSigningUp } = useSignup();
+
   const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
-
-  const { signUp, isUpdating } = useSignup();
 
   function onSubmit({ fullName, email, password }) {
     signUp(
@@ -28,6 +29,7 @@ function SignupForm() {
           type="text"
           id="fullName"
           {...register("fullName", { required: "This field is required" })}
+          disabled={isSigningUp}
         />
       </FormRow>
 
@@ -39,6 +41,7 @@ function SignupForm() {
             required: "This field is required",
             pattern: { value: /\S+@\S+\.\S+/, message: "Invalid email" },
           })}
+          disabled={isSigningUp}
         />
       </FormRow>
 
@@ -56,6 +59,7 @@ function SignupForm() {
               message: "Password must be at least 8 characters long",
             },
           })}
+          disabled={isSigningUp}
         />
       </FormRow>
 
@@ -68,15 +72,18 @@ function SignupForm() {
             validate: (value) =>
               value === getValues().password || "Passwords do not match",
           })}
+          disabled={isSigningUp}
         />
       </FormRow>
 
       <FormRow>
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset">
+        <Button variation="secondary" type="reset" disabled={isSigningUp}>
           Cancel
         </Button>
-        <Button>Create new user</Button>
+        <Button disabled={isSigningUp}>
+          {!isSigningUp ? "Create new user" : <SpinnerMini />}
+        </Button>
       </FormRow>
     </Form>
   );
