@@ -20,7 +20,7 @@ function UpdateUserDataForm() {
 
   const { updateUser, isUpdating } = useUpdateUser();
 
-  const [fullName, setFullName] = useState(currentFullName);
+  const [fullName, setFullName] = useState(currentFullName || "");
   const [avatar, setAvatar] = useState(null);
 
   function handleSubmit(e) {

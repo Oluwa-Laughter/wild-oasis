@@ -11,7 +11,9 @@ export function useLogin() {
     mutationFn: ({ email, password }) => loginAPI({ email, password }),
 
     onSuccess: ({ user }) => {
-      toast.success(`Welcome back, ${user.user_metadata.fullName}!`);
+      toast.success(
+        `Welcome back, ${user.user_metadata.fullName || user.email}!`
+      );
       queryClient.setQueryData(["user"], user);
       navigate("/dashboard", { replace: true });
     },
