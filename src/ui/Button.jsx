@@ -64,6 +64,8 @@ function Button({
   disabled,
   size = "medium",
   onClick,
+  as,
+  to,
 }) {
   return (
     <StyledButton
@@ -72,6 +74,8 @@ function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
+      as={as}
+      to={to}
     >
       {children}
     </StyledButton>
