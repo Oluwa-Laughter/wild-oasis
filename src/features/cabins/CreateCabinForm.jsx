@@ -21,12 +21,11 @@ function CreateCabinForm({ cabinToEdit, onCloseModal }) {
   const { register, handleSubmit, reset, getValues, formState } = useForm({
     defaultValues: isEditingSession ? editValues : {},
   });
+
   const { errors } = formState;
 
   function onSubmit(data) {
     const image = typeof data.image === "string" ? data.image : data.image[0];
-
-    console.log(image);
 
     if (isEditingSession)
       editCabin(
